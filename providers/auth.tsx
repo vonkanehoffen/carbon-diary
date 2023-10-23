@@ -30,7 +30,7 @@ export const AuthProvider = (props: Props) => {
         console.log(`Supabase auth event:`, event);
         setSession(session);
         setUser(session ? true : false);
-      }
+      },
     );
     return () => {
       authListener.subscription.unsubscribe();
