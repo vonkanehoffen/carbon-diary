@@ -3,7 +3,7 @@ import { Alert, StyleSheet, View } from "react-native";
 import { supabase } from "../services/supabase";
 import { Button, Input } from "react-native-elements";
 
-export default function Auth() {
+export function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
