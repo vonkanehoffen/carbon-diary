@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
-import { supabase } from "../../services/supabase";
+import { supabase } from "../services/supabase";
 import { Session } from "@supabase/supabase-js";
 type ContextProps = {
   user: null | boolean;
