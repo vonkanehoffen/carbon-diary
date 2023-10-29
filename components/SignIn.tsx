@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Alert, StyleSheet, View } from "react-native";
 import { supabase } from "../services/supabase";
 import { Button, Input } from "react-native-elements";
+import { router } from "expo-router";
 
 export function SignIn() {
   const [email, setEmail] = useState("");
@@ -17,6 +18,7 @@ export function SignIn() {
 
     if (error) Alert.alert(error.message);
     setLoading(false);
+    router.replace("/");
   }
 
   async function signUpWithEmail() {

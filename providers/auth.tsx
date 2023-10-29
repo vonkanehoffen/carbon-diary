@@ -1,6 +1,12 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, {
+  createContext,
+  useState,
+  useEffect,
+  PropsWithChildren,
+} from "react";
 import { supabase } from "../services/supabase";
 import { Session } from "@supabase/supabase-js";
+
 type ContextProps = {
   user: null | boolean;
   session: Session | null;
@@ -8,11 +14,15 @@ type ContextProps = {
 
 export const AuthContext = createContext<Partial<ContextProps>>({});
 
-interface Props {
-  children: React.ReactNode;
+export function useAuth() {
+  const context = React.useContext(AuthContext);
+  if (!context) {
+    throw new Error(`useAuth must be used within an AuthProvider`);
+  }
+  return context;
 }
 
-export const AuthProvider = (props: Props) => {
+export const AuthProvider = (props: PropsWithChildren) => {
   // user null = loading
   const [user, setUser] = useState<null | boolean>(null);
   const [session, setSession] = useState<Session | null>(null);
