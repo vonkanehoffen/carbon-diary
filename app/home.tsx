@@ -7,11 +7,11 @@ export default function () {
     <ViewCenter>
       <Stack.Screen
         options={{
-          title: "Index Test",
+          title: "Home Test",
         }}
       />
-      <Text>Index</Text>
-      <Link href="/home">View home</Link>
+      <Text>Home</Text>
+      <Link href="/">View index</Link>
     </ViewCenter>
   );
 }
