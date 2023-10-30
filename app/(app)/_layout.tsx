@@ -6,7 +6,7 @@ import { useAuth } from "../../providers/auth";
 export default function AppLayout() {
   const { session, user } = useAuth();
 
-  console.log("auth:", session, user);
+  console.log("AUTH:", user);
   // You can keep the splash screen open, or render a loading screen like we do here.
   if (user === null) {
     return <Text>Loading...</Text>;

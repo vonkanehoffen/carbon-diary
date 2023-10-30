@@ -30,14 +30,14 @@ export const AuthProvider = (props: PropsWithChildren) => {
   useEffect(() => {
     (async () => {
       const { data, error } = await supabase.auth.getSession();
-      console.log(`Supabase auth getSession:`, data);
+      console.log(`Supabase auth getSession:`, data.session);
       setSession(data.session);
-      setUser(session ? true : false);
+      setUser(data.session ? true : false);
     })();
 
     const { data: authListener } = supabase.auth.onAuthStateChange(
       (event, session) => {
-        console.log(`Supabase auth event:`, event);
+        // console.log(`Supabase auth event:`, event);
         setSession(session);
         setUser(session ? true : false);
       },
