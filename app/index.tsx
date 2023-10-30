@@ -11,7 +11,7 @@ export default function () {
         }}
       />
       <Text>Index</Text>
-      <Link href="/home">View home</Link>
+      <Link href="/home/tab-one">View tab one</Link>
     </ViewCenter>
   );
 }
