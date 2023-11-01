@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Alert, StyleSheet, View } from "react-native";
 import { supabase } from "../services/supabase";
-import { Button, Input } from "react-native-elements";
+import { Input } from "react-native-elements";
+import { Button } from "../components/atoms/Button";
 import { Link, router } from "expo-router";
 
 export default function SignIn() {

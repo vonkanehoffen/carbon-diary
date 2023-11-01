@@ -9,6 +9,7 @@ import { SplashScreen, Stack } from "expo-router";
 import { useEffect } from "react";
 import { useColorScheme } from "react-native";
 import { AuthProvider } from "../providers/auth";
+import { RestyleThemeProvider } from "../providers/theme";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -52,9 +53,11 @@ function RootLayoutNav() {
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <AuthProvider>
-        <Stack />
-      </AuthProvider>
+      <RestyleThemeProvider>
+        <AuthProvider>
+          <Stack />
+        </AuthProvider>
+      </RestyleThemeProvider>
     </ThemeProvider>
   );
 }
