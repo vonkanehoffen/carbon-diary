@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Alert, StyleSheet, View } from "react-native";
+import { Alert } from "react-native";
+import { Box } from "../providers/theme";
 import { supabase } from "../services/supabase";
-import { Input } from "react-native-elements";
 import { Button } from "../components/atoms/Button";
 import { Link, router } from "expo-router";
+import { TextInput } from "../components/atoms/TextInput";
 
 export default function SignIn() {
   const [email, setEmail] = useState("");
@@ -34,58 +35,41 @@ export default function SignIn() {
   }
 
   return (
-    <View style={styles.container}>
-      <View style={[styles.verticallySpaced, styles.mt20]}>
-        <Input
+    <Box m="m" mt="xl">
+      <Box mb="m">
+        <TextInput
           label="Email"
-          leftIcon={{ type: "font-awesome", name: "envelope" }}
           onChangeText={(text) => setEmail(text)}
           value={email}
           placeholder="email@address.com"
           autoCapitalize={"none"}
         />
-      </View>
-      <View style={styles.verticallySpaced}>
-        <Input
+      </Box>
+      <Box mb="m">
+        <TextInput
           label="Password"
-          leftIcon={{ type: "font-awesome", name: "lock" }}
           onChangeText={(text) => setPassword(text)}
           value={password}
           secureTextEntry={true}
           placeholder="Password"
           autoCapitalize={"none"}
         />
-      </View>
-      <View style={[styles.verticallySpaced, styles.mt20]}>
+      </Box>
+      <Box mb="s">
         <Button
           title="Sign in"
           disabled={loading}
           onPress={() => signInWithEmail()}
         />
-      </View>
-      <View style={styles.verticallySpaced}>
+      </Box>
+      <Box mb="s">
         <Button
           title="Sign up"
           disabled={loading}
           onPress={() => signUpWithEmail()}
         />
-      </View>
+      </Box>
       <Link href="/">Home</Link>
-    </View>
+    </Box>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    marginTop: 40,
-    padding: 12,
-  },
-  verticallySpaced: {
-    paddingTop: 4,
-    paddingBottom: 4,
-    alignSelf: "stretch",
-  },
-  mt20: {
-    marginTop: 20,
-  },
-});

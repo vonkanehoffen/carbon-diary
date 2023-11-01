@@ -17,7 +17,7 @@ export function Button({ title, onPress, disabled }: ButtonProps) {
         borderRadius="m"
         alignItems="center"
       >
-        <Text color="white" variant="buttonLabel">
+        <Text color="white" variant="label">
           {title}
         </Text>
       </Box>
