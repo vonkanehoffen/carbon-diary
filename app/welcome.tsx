@@ -15,7 +15,7 @@ export default function Welcome() {
             </Link>
           </Box>
           <Link href="/sign-up" asChild>
-            <Button title="Sign up" onPress={() => {}} />
+            <Button title="Sign up" onPress={() => {}} variant="secondary" />
           </Link>
         </Box>
       </Box>
