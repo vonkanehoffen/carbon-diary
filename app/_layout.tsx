@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import { useColorScheme } from "react-native";
 import { AuthProvider } from "../providers/auth";
 import { RestyleThemeProvider } from "../providers/theme";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -52,12 +53,19 @@ function RootLayoutNav() {
   const colorScheme = useColorScheme();
 
   return (
-    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <RestyleThemeProvider>
-        <AuthProvider>
-          <Stack />
-        </AuthProvider>
-      </RestyleThemeProvider>
-    </ThemeProvider>
+    <SafeAreaProvider>
+      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+        <RestyleThemeProvider>
+          <AuthProvider>
+            <Stack screenOptions={{ headerShown: false }}>
+              <Stack.Screen name="(app)" options={{ headerShown: false }} />
+              <Stack.Screen name="welcome" options={{ headerShown: false }} />
+              <Stack.Screen name="sign-up" options={{ title: "Sign up" }} />
+              <Stack.Screen name="sign-in" options={{ title: "Sign in" }} />
+            </Stack>
+          </AuthProvider>
+        </RestyleThemeProvider>
+      </ThemeProvider>
+    </SafeAreaProvider>
   );
 }

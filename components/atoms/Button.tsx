@@ -3,7 +3,7 @@ import { Text, Box } from "../../providers/theme";
 
 interface ButtonProps {
   title: string;
-  onPress: () => void;
+  onPress?: () => void;
   disabled?: boolean;
 }
 

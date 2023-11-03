@@ -22,6 +22,7 @@ const palette = {
 export const theme = createTheme({
   colors: {
     primary: palette.purplePrimary,
+    secondary: palette.greenPrimary,
     mainBackground: palette.white,
     cardPrimaryBackground: palette.purplePrimary,
     white: palette.white,
