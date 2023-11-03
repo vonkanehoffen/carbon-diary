@@ -58,6 +58,24 @@ export const theme = createTheme({
       // We can define a default text variant here.
     },
   },
+  buttonVariants: {
+    defaults: {
+      // We can define defaults for the variant here.
+      // This will be applied after the defaults passed to createVariant and before the variant defined below.
+    },
+    primary: {
+      backgroundColor: "primary",
+      color: "white",
+    },
+    secondary: {
+      backgroundColor: "secondary",
+      color: "white",
+    },
+    ghost: {
+      backgroundColor: "transparent",
+      color: "primary",
+    },
+  },
 });
 
 export type Theme = typeof theme;

@@ -56,7 +56,7 @@ export default function SignUp() {
           </Box>
           <Box mt="m">
             <Link href="/welcome" asChild>
-              <Button title="Go back" />
+              <Button title="Go back" variant="ghost" />
             </Link>
           </Box>
         </Box>

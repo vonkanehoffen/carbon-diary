@@ -1,19 +1,20 @@
 import { Pressable } from "react-native";
 import { forwardRef, type ElementRef } from "react";
 import { Text, Box, Theme } from "../../providers/theme";
-import { VariantProps } from "@shopify/restyle";
+import { VariantProps, useTheme } from "@shopify/restyle";
 
 interface ButtonProps {
   title: string;
   onPress?: () => void;
   disabled?: boolean;
-  variant?: VariantProps<Theme, "buttonVariants">;
+  variant?: keyof Theme["buttonVariants"];
 }
 
 export const Button = forwardRef<ElementRef<typeof Pressable>, ButtonProps>(
-  function Button({ title, onPress, disabled, variant }, ref) {
-    const backgroundColor = "primary";
-    const color = "white";
+  function Button({ title, onPress, disabled, variant = "primary" }, ref) {
+    const theme = useTheme<Theme>();
+    const backgroundColor = theme.buttonVariants[variant].backgroundColor;
+    const color = theme.buttonVariants[variant].color;
     return (
       <Pressable onPress={onPress} disabled={disabled} ref={ref}>
         <Box
