@@ -2,6 +2,7 @@ import {
   createBox,
   createText,
   createTheme,
+  createVariant,
   ThemeProvider,
 } from "@shopify/restyle";
 import { PropsWithChildren } from "react";
@@ -60,8 +61,8 @@ export const theme = createTheme({
   },
   buttonVariants: {
     defaults: {
-      // We can define defaults for the variant here.
-      // This will be applied after the defaults passed to createVariant and before the variant defined below.
+      // backgroundColor: "primary",
+      // color: "white",
     },
     primary: {
       backgroundColor: "primary",
@@ -79,6 +80,11 @@ export const theme = createTheme({
 });
 
 export type Theme = typeof theme;
+
+const buttonVariant = createVariant<Theme>({
+  themeKey: "buttonVariants",
+});
+console.log(buttonVariant);
 
 export const RestyleThemeProvider = ({ children }: PropsWithChildren) => (
   <ThemeProvider theme={theme}>{children}</ThemeProvider>
